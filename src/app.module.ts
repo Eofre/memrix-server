@@ -7,7 +7,8 @@ import { RoleModule } from './role/role.module';
 import { Role } from './role/role.model';
 import { UserRoles } from './user-roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
-import { EducationalModuleModule } from './educational-module/educational-module.module';
+import { EducationalBlockModule } from './educational-block/educational-block.module';
+import { EducationalBlock } from './educational-block/educational-block.model';
 
 @Module({
   imports: [
@@ -21,13 +22,13 @@ import { EducationalModuleModule } from './educational-module/educational-module
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Role, UserRoles],
+      models: [User, Role, UserRoles, EducationalBlock],
       autoLoadModels: true
     }),
     UserModule,
     RoleModule,
     AuthModule,
-    EducationalModuleModule,
+    EducationalBlockModule,
   ],
 })
 export class AppModule {}
