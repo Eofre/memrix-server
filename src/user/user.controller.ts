@@ -12,11 +12,11 @@ export class UserController {
 
     constructor(private userService: UserService) {}
 
-    @Post()
-    @UsePipes(ValidationPipe)
-    create(@Body() userDto: CreateUserDto) {
-        return this.userService.createUser(userDto)
-    }
+    // @Post()
+    // @UsePipes(ValidationPipe)
+    // create(@Body() userDto: CreateUserDto) {
+    //     return this.userService.createUser(userDto)
+    // }
 
     @Roles("ADMIN")
     @UseGuards(RolesGuard)

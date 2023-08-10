@@ -1,4 +1,5 @@
-import { BelongsToMany, Column, DataType, Model, Table } from "sequelize-typescript";
+import { BelongsToMany, Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { EducationalBlock } from "src/educational-block/educational-block.model";
 import { Role } from "src/role/role.model";
 import { UserRoles } from "src/user-roles/user-roles.model";
 
@@ -28,4 +29,7 @@ export class User extends Model<User, UserCreationAttrs>{
 
     @BelongsToMany(() => Role, () => UserRoles)
     roles: Role[]
+
+    @HasMany(() => EducationalBlock)
+    educationalBlocks: EducationalBlock[]
 }

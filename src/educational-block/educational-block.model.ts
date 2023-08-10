@@ -1,4 +1,6 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { Col } from "sequelize/types/utils";
+import { User } from "src/user/user.model";
 
 interface IWord {
     term: string,
@@ -25,4 +27,11 @@ export class EducationalBlock extends Model<EducationalBlock, EducationalBlockCr
 
     @Column({type: DataType.JSONB, allowNull: false})
     words: IWord[]
+
+    @ForeignKey(() => User)
+    @Column({type: DataType.INTEGER, allowNull: false})
+    userId: number;
+
+    @BelongsTo(() => User)
+    author: User
 }
